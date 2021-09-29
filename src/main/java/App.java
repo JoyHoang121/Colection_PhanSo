@@ -34,7 +34,6 @@ public class App {
                             int n = sc.nextInt();
                             for (int i = 0; i < n; i++) {
                                 System.out.println("Nhập vào phân số thứ: " + (i + 1));
-
                                 String str = sc1.nextLine();
                                 ps.add(i, PhanSo.parseFromString(str));
                             }
@@ -71,13 +70,17 @@ public class App {
                             System.out.println("Danh sách rỗng, không thể chọn chức năng này ");
                         } else {
                             System.out.println("Mời nhập vị trí phân số cần xóa");
-                            int index = sc.nextInt();
-                            if (index >= ps.size())
-                                System.out.println("Vị trí không tồn tại");
-                            for (int i = 0; i < ps.size(); i++) {
-                                if (i == index) {
-                                    ps.remove(i);
+                            try {
+                                int index = sc.nextInt();
+                                if (index >= ps.size())
+                                    System.out.println("Vị trí không tồn tại");
+                                for (int i = 0; i < ps.size(); i++) {
+                                    if (i == index) {
+                                        ps.remove(i);
+                                    }
                                 }
+                            } catch (NumberFormatException e) {
+                                System.out.println("Invalid format input");
                             }
                         }
                         break;
@@ -86,17 +89,20 @@ public class App {
                             System.out.println("Danh sách rỗng, không thể chọn chức năng này ");
                         } else {
                             System.out.println("Mời nhập vị trí phân số cần thay đổi");
-                            int index1 = sc.nextInt();
-                            if (index1 > ps.size())
-                                System.out.println("Vị trí không tồn tại");
-                            for (int i = 0; i < ps.size(); i++) {
-                                if (i == index1) {
-                                    System.out.println("Mời nhập phân số mới: ");
-                                    String str = sc1.nextLine();
-                                    ps.set(i, PhanSo.parseFromString(str));
-                                    System.out.println(ps);
-
+                            try {
+                                int index1 = sc.nextInt();
+                                if (index1 > ps.size())
+                                    System.out.println("Vị trí không tồn tại");
+                                for (int i = 0; i < ps.size(); i++) {
+                                    if (i == index1) {
+                                        System.out.println("Mời nhập phân số mới: ");
+                                        String str = sc1.nextLine();
+                                        ps.set(i, PhanSo.parseFromString(str));
+                                        System.out.println(ps);
+                                    }
                                 }
+                            } catch (NumberFormatException e) {
+                                System.out.println("Invalid format input");
                             }
                         }
                         break;
