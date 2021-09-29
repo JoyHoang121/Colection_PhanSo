@@ -23,7 +23,6 @@ public class App {
                 System.out.println("4. Delete Element");
                 System.out.println("5. Update Element");
                 System.out.println("6. Find element which has largest value");
-                System.out.println("7. Exit");
                 System.out.println();
 
                 int command = sc.nextInt();
@@ -109,8 +108,10 @@ public class App {
                     case 6:
                         System.out.println("Chưa làm");
                         break;
+
+
                     default:
-                        return;
+                        break;
                 }
             } while (true);
         } catch (InputMismatchException e) {
