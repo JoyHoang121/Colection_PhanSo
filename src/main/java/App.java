@@ -26,6 +26,9 @@ public class App {
                 System.out.println();
 
                 int command = sc.nextInt();
+                if (command > 6 || command < 1) {
+                    System.out.println("Mời chọn lại ");
+                }
                 switch (command) {
                     case 1:
                         System.out.println("Số lượng phân số cần nhập:");
